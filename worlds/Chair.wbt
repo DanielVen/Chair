@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.9746459267903891 -0.22373331130945526 -0.0029534389124773602 0.2508155952516829
-  position -0.029906274643494282 0.2569592500396352 0.7823288573308154
+  orientation 0.7051832951943144 0.7030055678665837 0.0921937727152464 5.91544802533887
+  position -0.39478350522909456 0.7118456511210626 1.637662864554593
 }
 TexturedBackground {
 }
@@ -12,18 +12,95 @@ TexturedBackgroundLight {
 Floor {
 }
 Solid {
+  translation 0 0.15000000000000002 0
   children [
-    Group {
+    DEF BOX1 Group {
       children [
-        Transform {
+        DEF BAR1 Transform {
+          translation 0 0.009999999999999997 0
           children [
             Shape {
-              appearance PBRAppearance {
+              appearance DEF A_BOX PBRAppearance {
                 baseColor 0.5607843137254902 0.34901960784313724 0.00784313725490196
               }
-              geometry Box {
-                size 0.1 0.1 0.1
+              geometry DEF G_BOX Box {
+                size 0.28 0.02 0.01
               }
+            }
+          ]
+        }
+        DEF BAR2 Transform {
+          translation 0.13999999999999999 0.01 -0.15
+          rotation 0 1 0 1.5708003061004252
+          children [
+            Shape {
+              appearance USE A_BOX
+              geometry USE G_BOX
+            }
+          ]
+        }
+        DEF BAR3 Transform {
+          translation -0.012 0.01 -0.285
+          children [
+            Shape {
+              appearance USE A_BOX
+              geometry USE G_BOX
+            }
+          ]
+        }
+        DEF BAR4 Transform {
+          translation -0.15 0.01 -0.135
+          rotation 0.7071053742881861 3.390510605216497e-09 -0.7071081880821097 3.141592646808799
+          children [
+            Shape {
+              appearance USE A_BOX
+              geometry USE G_BOX
+            }
+          ]
+        }
+        DEF S_CYLINDERS Group {
+          children [
+            DEF CYL1 Transform {
+              translation -0.12 0.175 -0.015
+              rotation 0 0 1 0
+              children [
+                Shape {
+                  appearance DEF A_CYL PBRAppearance {
+                    baseColor 0 0 0
+                  }
+                  geometry DEF G_CYL Cylinder {
+                    height 0.65
+                    radius 0.01
+                  }
+                }
+              ]
+            }
+            DEF CYL2 Transform {
+              translation 0.12 0.175 -0.015
+              children [
+                Shape {
+                  appearance USE A_CYL
+                  geometry USE G_CYL
+                }
+              ]
+            }
+            DEF CYL3 Transform {
+              translation 0.12000000000000001 0.175 -0.26
+              children [
+                Shape {
+                  appearance USE A_CYL
+                  geometry USE G_CYL
+                }
+              ]
+            }
+            DEF CYL4 Transform {
+              translation -0.12000000000000001 0.175 -0.26
+              children [
+                Shape {
+                  appearance USE A_CYL
+                  geometry USE G_CYL
+                }
+              ]
             }
           ]
         }
